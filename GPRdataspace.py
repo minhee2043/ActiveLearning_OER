@@ -220,4 +220,4 @@ class Regression():
 
         # return predicted energies
         return np.dot(X, w)
-"""
+

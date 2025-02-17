@@ -1,0 +1,22 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: ActiveLearning_OER
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Minhee
+    family-names: Park
+    email: minhee2043@snu.ac.kr
+    affiliation: Seoul National University
+    orcid: 'https://orcid.org/0009-0000-4766-0258'
+repository-code: 'https://github.com/minhee2043/ActiveLearning_OER'
+abstract: >-
+  We developed an active learning framework to efficiently
+  sample DFT-calculated properties of alloy-based
+  electrocatalysts and correlate the composition of ternary
+  alloys with their catalytic activities.
+license: MIT

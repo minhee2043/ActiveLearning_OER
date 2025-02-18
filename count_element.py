@@ -7,7 +7,7 @@ def calculate_element_counts(input_file, max_rows=280000):
     
     Args:
         input_file (str): Path to input CSV file with GPR predictions
-        max_rows (int): Maximum number of rows to process
+        max_rows (int): Maximum number of rows to process. May differ from number of elements in alloy
         
     Returns:
         np.ndarray: Processed data with element counts and predictions
@@ -75,8 +75,8 @@ def save_results(output_data, output_file):
     )
 
 def main():
-    input_file = 'GPR_batch15.csv'
-    output_file = 'batch15_count.csv'
+    input_file = 'name_of_final_GPR.csv'
+    output_file = 'ready_for_activity_calc.csv'
     
     # Process the data
     output_data = calculate_element_counts(input_file)

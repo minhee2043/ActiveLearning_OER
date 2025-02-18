@@ -77,7 +77,7 @@ Preprocessing of data for activity calculation. For each feature, the number of 
 **activity_plot.py**
 Based on the Boltzmann distribution of reaction kinetics, the activity of ternary catalyst is calculated.
 
-parity_plot.py
+**parity_plot.py**
 Assessment of the model with the final dataset.
 
 ## Modifications for Other Users

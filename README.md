@@ -1,5 +1,5 @@
 # ActiveLearning_OER
-Active learning based model to sufficiently navigate OER catalyst
+Active learning based model to sufficiently navigate OER alloy catalyst
 
 This repository contains the implementation of an active learning model to navigate OER catalyst. The codes are organized to generate features, preprocess data, and perform Gaussian process regression to predict energies and select the next points for calculation.
 
@@ -91,5 +91,5 @@ Assessment of the model with the final dataset.
 
 **Model Assessment**: Adjust parity_plot.py to change the assessment criteria or visualization of the model performance.
 
--Feel free to modify the code to suit your specific requirements and improve the model's performance.
+Feel free to modify the code to suit your specific requirements and improve the model's performance.
 

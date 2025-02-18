@@ -172,7 +172,7 @@ def evaluate_model(model, X_test, y_test):
     mae = mean_absolute_error(y_test, y_pred)
     return mae
 
-def generate_batch_suggestions(model1, model2, output_file='GPR_batch15.csv'):
+def generate_batch_suggestions(model1, model2, output_file='GPR_batch<num>.csv'):
     """
     Generate and process batch suggestions based on model predictions.
     
@@ -184,7 +184,7 @@ def generate_batch_suggestions(model1, model2, output_file='GPR_batch15.csv'):
     # Load validation data
     x_val = []
     multiplicities = []
-    with open('groupcount.csv', 'r') as handle:
+    with open('total_GPRspace.csv', 'r') as handle:
         for line in handle.readlines():
             features = line.split(',')[:15]
             mult = int(line.split(',')[15])
@@ -214,11 +214,11 @@ def generate_batch_suggestions(model1, model2, output_file='GPR_batch15.csv'):
     
     # Generate final suggestions
     generate_final_suggestions(
-        'GPR_batch15_arrange.csv',
+        'GPR_batch<num>_arrange.csv',
         'possibleFp.csv',
-        'batch16_sugest.csv',
+        'batch<num+1>_sugest.csv',
         'index_metal.csv',
-        'batch16_metal.csv'
+        'batch<num+1>_metal.csv'
     )
 
 def generate_final_suggestions(arranged_file, possible_file, suggest_file, 

@@ -3,7 +3,7 @@ import pandas as pd
 
 def calculate_element_counts(input_file, max_rows=280000):
     """
-    Calculate element counts and process GPR predictions from input file.
+    Calculate element counts for each vector from GPR predictions output file. Used to determine the ratio of each element in the surface motif
     
     Args:
         input_file (str): Path to input CSV file with GPR predictions

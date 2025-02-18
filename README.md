@@ -8,8 +8,16 @@ Clone the repository: git clone https://github.com/your-repo.git
 cd your-repo
 
 Install the required dependencies: 
+The following dependencies are required to run the scripts in this repository. 
+```
+numpy>=1.21.2
+scipy>=1.7.1
+pandas>=1.3.3
+matplotlib>=3.4.3
+scikit-learn>=0.24.2
+```
 
-Run the scripts in the following order:
+Run the scripts in the following order
 
 Generate features for the surface motif:
 ```
@@ -73,24 +81,15 @@ parity_plot.py
 Assessment of the model with the final dataset.
 
 ## Modifications for Other Users
--**Feature Generation**: Modify GPRdataspace.py to include additional features or change the existing feature generation logic.
+**Feature Generation**: Modify GPRdataspace.py to include additional features or change the existing feature generation logic.
 
--**DFT-calculated Dataspace**: Update possibleFp.py to change the alloy conditions
+**DFT-calculated Dataspace**: Update possibleFp.py to change the alloy conditions
 
--**Surface Motif to Feature Vector**: Adjust motif_to_feature.py to change how surface motifs are converted to feature vectors.
+**Surface Motif to Feature Vector**: Adjust motif_to_feature.py to change how surface motifs are converted to feature vectors.
 
--**Active Learning Model**: Customize mygaussian.py to change the Gaussian process regression model or the acquisition function. Filename should be edtited.
+**Active Learning Model**: Customize mygaussian.py to change the Gaussian process regression model or the acquisition function. Filename should be edtited.
 
--**Model Assessment**: Adjust parity_plot.py to change the assessment criteria or visualization of the model performance.
+**Model Assessment**: Adjust parity_plot.py to change the assessment criteria or visualization of the model performance.
 
 -Feel free to modify the code to suit your specific requirements and improve the model's performance.
 
-## Requirements
-The following dependencies are required to run the scripts in this repository. 
-```
-numpy>=1.21.2
-scipy>=1.7.1
-pandas>=1.3.3
-matplotlib>=3.4.3
-scikit-learn>=0.24.2
-```

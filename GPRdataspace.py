@@ -25,8 +25,7 @@ class Regression():
         self.keepIds = []
 
     def all_fingerprints(self, filename, nMetals, zoneSizes):
-        '''write a csv file containing the number of each metal,
-        the adsorption energy, and the multiplicity of all fingerprints.
+        '''write a csv file containing the number of each metal and the multiplicity of all fingerprints.
         filename   String       name of csv file to save the output to
         w        list of floats linear regression parameters
         nMetals       int             number of metals in the alloy, e.g. 5
@@ -65,7 +64,6 @@ class Regression():
 
         # initiate arrays
         counts = np.zeros((nLines, nMetals))
-        energies = np.zeros(nLines)
         mults = np.zeros(nLines)
         feature=np.zeros((nLines,24))
         # initiate countera
@@ -77,7 +75,6 @@ class Regression():
             if saveEns:
                 # reset arrays
                 counts = np.zeros((nLines, nMetals), dtype='int64')
-                energies = np.zeros(nLines, dtype='float')
                 mults = np.zeros(nLines, dtype='int64')
 
                 # reset counter
@@ -107,9 +104,6 @@ class Regression():
                 
                 fp = np.array(adsFp + zoneFp) 
                 feature[i]=fp
-                # predict energy
-                #energies[i] = self.predicted_energies(fp, w)
-                #print(energies[i])
                 # count of metals of fingerprint
                 # e.g. [10, 0, 0, 0, 0]
                 counts[i] = (np.array(adsCount) +

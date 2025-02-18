@@ -12,17 +12,29 @@ Install the required dependencies:
 Run the scripts in the following order:
 
 Generate features for the surface motif:
-> python GPRdataspace.py
+```
+python GPRdataspace.py
+```
 Generate DFT-calculated dataspace:
-> python possibleFp.py
+```
+python possibleFp.py
+```
 Convert surface motif to feature vector:
-> motif_to_feature.py
+```
+from motif_to_feature import Slab
+```
 Preprocess data for activity calculation:
-> python sum_element.py
+```
+python sum_element.py
+```
 Calculate activity based on Boltzmann distribution:
-> python activity_plot.py
+```
+python activity_plot.py
+```
 Assess the model with the final dataset:
-> parity_plot.py
+```
+python parity_plot.py
+```
 
 ## Data Format
 Input Data:

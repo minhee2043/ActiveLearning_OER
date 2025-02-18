@@ -24,8 +24,11 @@ i = 0
 mults = np.zeros(6561)  # 3^8 possible combinations (3 metals, 8 positions)
 feature = np.zeros((6561, 21))  # Features matrix
 
-# Generate all possible surface configurations
-# Each position can be Ni, Co, or Fe
+"""
+Generate all possible surface configurations. In this case, 2*2*4 structure
+Two layers are repeated twice for simplicity as only the top two layers are important for featurization
+Each position can be Ni, Co, or Fe
+"""
 possible_surface = list(product(['Ni', 'Co', 'Fe'], repeat=8))
 
 # Iterate through all possible surface configurations

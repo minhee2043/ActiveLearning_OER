@@ -209,7 +209,7 @@ def generate_batch_suggestions(model1, model2, output_file='GPR_batch<num>.csv')
     # Sort and process for suggestions
     data = pd.read_csv(output_file, header=None)
     data.sort_values(data.columns[21], axis=0, ascending=[False], inplace=True)
-    data.to_csv('GPR_batch15_arrange.csv', header=None, index=None,
+    data.to_csv('GPR_batch<num>_arrange.csv', header=None, index=None,
                 columns=list(range(16)))  # Keep only first 16 columns
     
     # Generate final suggestions

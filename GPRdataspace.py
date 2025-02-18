@@ -13,7 +13,6 @@ from ase.calculators.vasp import Vasp2
 from ase.io import read
 from helperMethods import count_atoms, sortMetals
 import itertools as it
-#from slab import Slab
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -24,64 +23,6 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 class Regression():
     def __init__(self):
         self.keepIds = []
-
-    def weights(self, X, t, nMetals, zoneSizes):
-        '''return optimized linear regression parameters (size: no. of features).
-        Implemented from 'Learning from Data', Abu-Mostafa et al. p. 86, without bias parameter
-        X        array (no. of samples x no. of features)   features
-        t        array (no. of samples)                target values
-        nMetals    int                                  number of metals in alloy
-        zoneSizes  tuple of ints                       no. of atoms in each zone'''
-
-        # remove columns that are pure zeros to avoid singular matrices later
-        X, remIds, self.keepIds = remove_zero_columns(X)  # remIds has ids between 1 and 35
-        n = len(remIds)
-
-        # if any columns were removed
-        if n == 1:
-            print('feature number %d was zero for all samples and has been disregarded.'
-                  % remIds[0])
-            print('This features will thus not influence predictions.')
-        elif n > 1:
-            print('features numbered %s were zero for all samples and have been disregarded.'
-                  % remIds.join(', '))
-            print('These features will thus not influence predictions.')
-
-        # calculate linear regression parameters
-        XT = X.transpose()
-        XTX = np.dot(XT, X)
-        b = np.dot(XT, t)
-        w = np.linalg.solve(XTX, b)
-
-        ## center parameters around the average (except first zone)
-        # number of adsorption ensembles
-        nEns = factorial(nMetals + zoneSizes[0] - 1) / (factorial(zoneSizes[0]) * factorial(nMetals - 1))
-        nEns=int(nEns)
-        # number of zones except adsorption ensemble zone
-        nGroups = (len(w) - nEns) / nMetals
-        nGroups=int(nGroups)
-        # initiate means of groups
-        groupMeans = [0] * nGroups
-
-        # loop through weights in groups of "nMetals
-        for g in range(nGroups):
-            start, stop = int(nEns + g * nMetals), int(nEns + (g + 1) * nMetals)
-            ws = w[start:stop]
-
-            # subtract mean from all parameters
-            mean = sum(ws) / len(ws)
-            ws = [w0 - mean for w0 in ws]
-            groupMeans[g] = mean
-
-            # update w
-            w[start:stop] = ws
-
-        # subtract group means from ensemble parameters
-        for i in range(nEns):
-            for j, mean in enumerate(groupMeans):
-                w[i] += zoneSizes[j + 1] * mean
-
-        return w
 
     def all_fingerprints(self, filename, nMetals, zoneSizes):
         '''write a csv file containing the number of each metal,
@@ -200,24 +141,4 @@ class Regression():
             np.savetxt(filename, output, fmt=['%d'] * 24 +['%d'], delimiter=',')
 
 
-    def predicted_energies(self, X, w):
-        '''return list of predicted energies (size: no. of samples)
-        X (no. of samples x no. of features)   feature array
-        w (no. of features)                   linear regression parameters'''
-
-        # if the number of features is greater than the number of parameters
-        if len(X.T) > len(w):
-
-            # if only one sample
-            if X.ndim == 1:
-
-                # keep only columns that have defined parameters
-                X = X[self.keepIds]
-            else:
-
-                # keep only columns that have defined parameters
-                X = X[:, self.keepIds]
-
-        # return predicted energies
-        return np.dot(X, w)
 

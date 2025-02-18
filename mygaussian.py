@@ -175,7 +175,7 @@ def evaluate_model(model, X_test, y_test):
 def generate_batch_suggestions(model1, model2, output_file='GPR_batch<num>.csv'):
     """
     Generate and process batch suggestions based on model predictions.
-    
+    'total_GPRspace.csv' refers to the csv made from GPRdataspace.py
     Args:
         model1: First trained *O GPR model
         model2: Second trained *OH GPR model
@@ -184,7 +184,7 @@ def generate_batch_suggestions(model1, model2, output_file='GPR_batch<num>.csv')
     # Load validation data
     x_val = []
     multiplicities = []
-    with open('total_GPRspace.csv', 'r') as handle:
+    with open('total_GPRspace.csv', 'r') as handle: 
         for line in handle.readlines():
             features = line.split(',')[:15]
             mult = int(line.split(',')[15])
@@ -216,7 +216,7 @@ def generate_batch_suggestions(model1, model2, output_file='GPR_batch<num>.csv')
     generate_final_suggestions(
         'GPR_batch<num>_arrange.csv',
         'possibleFp.csv',
-        'batch<num+1>_sugest.csv',
+        'batch<num+1>_suggest.csv',
         'index_metal.csv',
         'batch<num+1>_metal.csv'
     )
@@ -227,11 +227,11 @@ def generate_final_suggestions(arranged_file, possible_file, suggest_file,
     Generate final batch suggestions by comparing arranged results with possible fingerprints.
     
     Args:
-        arranged_file (str): Path to arranged GPR results
-        possible_file (str): Path to possible fingerprints file
-        suggest_file (str): Path to output suggestions file
-        index_file (str): Path to metal index file
-        metal_file (str): Path to output metal file
+        arranged_file (str): Path to arranged GPR results by EI
+        possible_file (str): Path to possible fingerprints file - made from possibleFp.py
+        suggest_file (str): Path to surfaces suggested by aquisition function file
+        index_file (str): Path to metal index file - made from possibleFp.py
+        metal_file (str): Path to output metal file - file that converted suggested surface feature to structure information
         max_suggestions (int): Maximum number of suggestions to generate
     """
     # Read input files

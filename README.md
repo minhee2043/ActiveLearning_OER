@@ -4,7 +4,7 @@ Active learning based model to sufficiently navigate OER alloy catalyst
 This repository contains the implementation of an active learning model to navigate OER catalyst. The codes are organized to generate features, preprocess data, and perform Gaussian process regression to predict energies and select the next points for calculation.
 
 ## Usage
-Clone the repository: git clone https://github.com/your-repo.git
+Clone the repository: git clone https://github.com/minhee2043/ActiveLearning_OER.git
 cd your-repo
 
 Install the required dependencies: 

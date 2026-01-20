@@ -32,7 +32,7 @@ Convert surface motif to feature vector:
 from motif_to_feature import Slab
 trajectory = ase.io.read('<name of trajectory')
 motif = Slab(trajectory)
-feature = np.array(mmotif.features(['Ni','Co','Fe'],zones=['ens','sf','ssf','sn','ssn']))
+feature = np.array(motif.features(['Ni','Fe','Co'],zones=['ens','sf','ssf','sn','ssn']))
 ```
 Run active learning model
 ```

@@ -1,23 +1,8 @@
-from ase import Atoms
-from ase.visualize import view
-from ase.build import bulk, molecule, fcc111
-from ase.calculators.vasp import Vasp
-from matplotlib import pyplot as plt
-from ase.optimize import BFGS
-from ase.constraints import FixAtoms
 import numpy as np
-import copy
 from itertools import combinations, product
-from ase.io import Trajectory, read, write
-import ase.db
-from ase.db import connect
-from ase.build import add_adsorbate
-import random
-import sys
 from collections import defaultdict
 from helperMethods import multiplicity  # Custom helper function
 import csv
-import fileinput
 
 # Initialize arrays for storing results
 i = 0

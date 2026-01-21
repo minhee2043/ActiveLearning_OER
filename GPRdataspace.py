@@ -6,7 +6,6 @@ import os
 import csv
 import pickle
 from helperMethods import count_atoms, sortMetals
-import itertools as it
 import pandas as pd
 
 class Regression():

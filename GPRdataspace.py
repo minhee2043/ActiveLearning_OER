@@ -3,22 +3,11 @@ import numpy as np
 from helperMethods import unique, count_metals, remove_zero_columns, multiplicity
 from math import factorial
 import os
-from ase import Atoms
-import sys
 import csv
-import ase
-from ase.io import read
 import pickle
-from ase.calculators.vasp import Vasp2
-from ase.io import read
 from helperMethods import count_atoms, sortMetals
 import itertools as it
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_absolute_error, mean_squared_error
-
 
 class Regression():
     def __init__(self):
@@ -36,8 +25,7 @@ class Regression():
         #      [(0, 0, 0, 0, 0, 0), (0, 0, 0, 0, 0, 1), ...],
         #      ... ]
         allZoneEns = [list(it.combinations_with_replacement(range(3), zoneSize)) for zoneSize in zoneSizes]
-        print(allZoneEns)
-        #sys.exit()
+        
         # possible combinations for each zone
         # transform ensembles into counts of metals within each zone
         # e.g. [ [[1, 0, 0, 0, 0], [0, 1, 0, 0, 0], ...],

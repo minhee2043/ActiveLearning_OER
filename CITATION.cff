@@ -4,8 +4,8 @@
 cff-version: 1.2.0
 title: ActiveLearning_OER
 message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
+  If you use this software, please cite the associated
+  paper using the preferred-citation metadata in this file.
 type: software
 authors:
   - given-names: Minhee
@@ -20,3 +20,26 @@ abstract: >-
   electrocatalysts and correlate the composition of ternary
   alloys with their catalytic activities.
 license: MIT
+preferred-citation:
+  type: article
+  title: >-
+    Accelerated Discovery of Earth-Abundant Oxygen Evolution
+    Catalysts Through Surface-Informed Active Learning
+  authors:
+    - given-names: Hayun
+      family-names: Jeon
+    - given-names: Minhee
+      family-names: Park
+    - given-names: Won Bo
+      family-names: Lee
+    - given-names: Seyoung
+      family-names: Park
+    - given-names: YongJoo
+      family-names: Kim
+    - given-names: Sungwook
+      family-names: Mhin
+  journal: Advanced Science
+  year: 2026
+  start: e78281
+  doi: 10.1002/advs.78281
+  url: 'https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.78281'

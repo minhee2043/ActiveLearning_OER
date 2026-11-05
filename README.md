@@ -3,6 +3,13 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
+> **This repository contains the code for the paper:**
+> H. Jeon, M. Park, W. B. Lee, S. Park, Y. Kim, S. Mhin,
+> "[Accelerated Discovery of Earth-Abundant Oxygen Evolution Catalysts Through Surface-Informed Active Learning](https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.78281)",
+> *Advanced Science*, e78281 (2026). DOI: [10.1002/advs.78281](https://doi.org/10.1002/advs.78281)
+>
+> If you use this code, please cite the paper (see [Citation](#citation)).
+
 An active learning framework for efficiently navigating the chemical space of ternary alloy catalysts for the Oxygen Evolution Reaction (OER). This repository implements Gaussian Process Regression (GPR) with intelligent query strategies to minimize the number of expensive DFT calculations needed to identify promising catalyst compositions.
 
 ## Table of Contents
@@ -14,6 +21,7 @@ An active learning framework for efficiently navigating the chemical space of te
 - [File Descriptions](#file-descriptions)
 - [Data Format](#data-format)
 - [Customization Guide](#customization-guide)
+- [Citation](#citation)
 - [License](#license)
 
 ---
@@ -357,6 +365,21 @@ kernel = Matern(length_scale=1.0, nu=2.5) + WhiteKernel(noise_level=0.1)
 
 # Alternative: Rational Quadratic (scale-invariant)
 kernel = RationalQuadratic(length_scale=1.0, alpha=0.1) + WhiteKernel(noise_level=0.1)
+```
+
+---
+
+## Citation
+If you find this code useful in your research, please cite:
+```bibtex
+@article{jeon2026accelerated,
+  title   = {Accelerated Discovery of Earth-Abundant Oxygen Evolution Catalysts Through Surface-Informed Active Learning},
+  author  = {Jeon, Hayun and Park, Minhee and Lee, Won Bo and Park, Seyoung and Kim, YongJoo and Mhin, Sungwook},
+  journal = {Advanced Science},
+  pages   = {e78281},
+  year    = {2026},
+  doi     = {10.1002/advs.78281}
+}
 ```
 
 ---
